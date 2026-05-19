@@ -1,0 +1,15 @@
+import pandas as pd
+df = pd.read_csv("students.csv")
+print("\n----- STUDENT DATA -----")
+print(df)
+df = df.dropna()
+average_marks = df["Marks"].mean()
+print("\nAverage Marks:", average_marks)
+highest_marks = df["Marks"].max()
+print("Highest Marks:", highest_marks)
+top_students = df[df["Marks"] > 80]
+print("\n----- TOP STUDENTS -----")
+print(top_students)
+department_average = df.groupby("Department")["Marks"].mean()
+print("\n----- DEPARTMENT AVERAGE -----")
+print(department_average)
